@@ -10,20 +10,28 @@ public class hangman {
             blank += "_";
         }
         System.out.println(blank);
+        char[] blankC = blank.toCharArray();
 
         while(!blank.equals(word)){
+
             String guess = JOptionPane.showInputDialog("Enter letter:");
             guess = guess.toUpperCase();
+
+
             for(int o = 0; o < word.length(); o++){
                 char letter = word.charAt(o);
                 String letterS = String.valueOf(letter);
                 if (guess.equals(letterS)){
-                    System.out.println(blank.replace('_', letter));
+                    blankC[o] = letter;
+                    System.out.println(blankC);
+                    blank = String.valueOf(blankC);
                 }
-                else{
-                    break;
+                if (){
+
                 }
             }
         }
+        boolean
+        System.out.println("BIG WIN!!!");
     }
 }
