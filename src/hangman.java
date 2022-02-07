@@ -18,6 +18,7 @@ public class hangman {
 
         while(!blank.equals(word)){
 
+            p = 0;
             String guess = JOptionPane.showInputDialog("Enter letter:");
             guess = guess.toUpperCase();
 
@@ -28,15 +29,17 @@ public class hangman {
                     blankC[o] = letter;
                     System.out.println(blankC);
                     blank = String.valueOf(blankC);
-                    p += 1;
+                    p = p + 1;
                     }
-                if (p < 1 && o >= word.length()) {
+                else if (!guess.equals(letterS) && p == 0 && o >= word.length()-1) {
                     attempt += 1;
-                    System.out.println("Nope");
-                    break;
+                    p = p + 1;
+                    int remain = totA - attempt;
+                    System.out.println("Nope \nYou have " + remain + " attempt(s) remaining");
+                    System.out.println(blankC);
                 }
                 if (attempt >= totA) {
-                    System.out.println("BIG LOSE!!!");
+                    System.out.println("BIG LOSE!!!\n" + "The word was: " + word);
                     System.exit(0);
                 }
             }
